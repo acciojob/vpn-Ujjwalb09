@@ -4,25 +4,22 @@ import lombok.*;
 
 import javax.persistence.*;
 
-// Note: Do not write @Enumerated annotation above CountryName in this model.
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Setter
+@Getter
 
-public class Country{
+public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String code;
-    private CountryName countryName;
 
     @ManyToOne
     @JoinColumn
     ServiceProvider serviceProvider;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn
     User user;
-
-
 }
